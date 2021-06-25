@@ -5,8 +5,6 @@ templates:
   bin/run.sh.erb: bin/run
 
 consumes:
-- name: elasticsearch
-  type: elasticsearch
 - name: kibana
   type: kibana
 

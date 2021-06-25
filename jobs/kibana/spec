@@ -12,6 +12,15 @@ templates:
 packages:
 - kibana
 
+provides:
+- name: kibana
+  type: kibana
+  properties:
+  - kibana.elasticsearch.protocol
+  - kibana.elasticsearch.client.username
+  - kibana.elasticsearch.client.password
+  - kibana.port
+
 consumes:
 - name: elasticsearch
   type: elasticsearch

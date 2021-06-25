@@ -42,12 +42,8 @@ describe 'create-roles job' do
                 "cluster": [],
                 "indices": [
                   {
-                    "names": [
-                      "*"
-                    ],
-                    "privileges": [
-                      "all"
-                    ]
+                    "names": [ "*" ],
+                    "privileges": [ "all" ]
                   }
                 ]
               },
@@ -55,19 +51,11 @@ describe 'create-roles job' do
                 {
                   "base": [],
                   "feature": {
-                    "visualize": [
-                      "all"
-                    ],
-                    "dashboard": [
-                      "all"
-                    ],
-                    "discover": [
-                      "all"
-                    ]
+                    "visualize": ["all"],
+                    "dashboard": ["all"],
+                    "discover": ["all"]
                   },
-                  "spaces": [
-                    "*"
-                  ]
+                  "spaces": ["*"]
                 }
               ]
             }
