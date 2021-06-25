@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+set -euf -o pipefail
+
+<%
+kibana_link = link('kibana')
+protocol = kibana_link.p('kibana.elasticsearch.protocol', 'http')
+url="#{protocol}://"
+username = kibana_link.p('kibana.elasticsearch.client.username', nil)
+password = kibana_link.p('kibana.elasticsearch.client.password', nil)
+if username && password
+  url += "#{username}:#{password}@"
+end
+host = kibana_link.instances.first.address
+url += host
+port = kibana_link.p('kibana.port', nil)
+if port
+  url += ":#{port}"
+end
+%>
+
+<%
+if_p('roles') do |create_roles|
+  create_roles.each do |role|
+
+  rendered_headers = role.fetch("headers").map{|header| "-H '#{header.keys[0]}: #{header.values[0]}'"}.join(" ")
+%>
+curl -s -k -X  <%= role.fetch("action") %> <%= rendered_headers %>  <%= url %><%= role.fetch("endpoint") %> -d '<%= role.fetch("payload") %>'
+<%
+  end
+end
+%>

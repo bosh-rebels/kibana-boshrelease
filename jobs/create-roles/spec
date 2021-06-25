@@ -1,0 +1,26 @@
+---
+name: create-roles
+
+templates:
+  bin/run.sh.erb: bin/run
+
+consumes:
+- name: elasticsearch
+  type: elasticsearch
+- name: kibana
+  type: kibana
+
+packages: []
+
+properties:
+  roles:
+    description: |
+      An array of api calls made from this errand targeting localhost. The format of the array element would be:
+      - endpoint: /some/endpoint/targeting/es/api
+        action: # Actions allowed by the list of curl -X option (PUT|POST|GET|PATCH)
+        headers:
+        - Content-Type: application/json
+        payload: |
+          {
+            ....
+          }
