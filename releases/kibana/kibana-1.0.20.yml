@@ -1,0 +1,26 @@
+name: kibana
+version: 1.0.20
+commit_hash: 306d49c
+uncommitted_changes: false
+jobs:
+- name: create-roles
+  version: ea9232db6e68510db6531a552babf9a0a6f071523e44a11f5520d3800f7cb358
+  fingerprint: ea9232db6e68510db6531a552babf9a0a6f071523e44a11f5520d3800f7cb358
+  sha1: sha256:0d24bc0944bec0fb2462f9c5e87ff68dc11de69f16b54ec5d1920b026a9de79d
+  packages: []
+- name: kibana
+  version: 875aeb43bffba1674b1466d08dc5796380ab08b4069a0e667462179150e4fda2
+  fingerprint: 875aeb43bffba1674b1466d08dc5796380ab08b4069a0e667462179150e4fda2
+  sha1: sha256:b16dc37ac3a87761d20b5b771027c3d0bf2e05e669f944462baf66711dc1d4c6
+  packages:
+  - kibana
+packages:
+- name: kibana
+  version: 8a37993c0ca44b985f687ec9dfedfe7cc9b5a6137a8d473de15467bcfe5d1959
+  fingerprint: 8a37993c0ca44b985f687ec9dfedfe7cc9b5a6137a8d473de15467bcfe5d1959
+  sha1: sha256:ccecd23f4b4ba0fa14d4ab9606eb97aa8436717c408bee1b1359773aae01df74
+  dependencies: []
+license:
+  version: bdcb1db1cfb88cafa4b6de84e812da4ed1b3a48653022e6eaa61369cd88da084
+  fingerprint: bdcb1db1cfb88cafa4b6de84e812da4ed1b3a48653022e6eaa61369cd88da084
+  sha1: sha256:c79cb69a34d970d2d202f7ea946ba7931aae8e8d0afb81ff8d4aa74deebc7372
