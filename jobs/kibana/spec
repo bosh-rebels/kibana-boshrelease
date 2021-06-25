@@ -83,3 +83,8 @@ properties:
     description: key
   kibana.xpack.encryptedSavedObjects.encryptionKey:
     description: "A string of 32 or more characters used to encrypt sensitive properties on alerts and actions before they’re stored in Elasticsearch"
+  kibana.elasticsearch.client.username:
+    description: "The elastic username required to connect to a secure Kibana cluster"
+    default: elastic
+  kibana.elasticsearch.client.password:
+    description: "The elastic password required to connect to a secure Kibana cluster"
