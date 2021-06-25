@@ -15,12 +15,16 @@ describe 'create-roles job' do
           instances: [Bosh::Template::Test::LinkInstance.new(address: '10.0.8.2')],
           properties: {
             'kibana'=> {
-              'cluster_name' => 'test',
-              'client' => {
-                'port' => '5601'
+              'port' => '5601',
+              'elasticsearch' => {
+                'protocol' => 'https',
+                'client' => {
+                  'username' => 'admin',
+                  'password' => 'password'
               }
-            },
+            }
           }
+        }
         )
       ] }
 
@@ -33,32 +37,45 @@ describe 'create-roles job' do
             - Content-Type: application/json
             - kbn-xsrf: true
           payload: |
-          {
-            "elasticsearch": {
-              "cluster" : [ ],
-              "indices": [
-              {
-                "names": [ "*" ],
-                "privileges": [ "all" ]
-            }]
-            },
-            "kibana": [
-              {
-                "base": [],
-                "feature": {
-                  "visualize": ["all"],
-                  "dashboard": ["all"],
-                  "discover": ["all"]
-                },
-                "spaces": ["*"]
-              }
-            ]
+            {
+              "elasticsearch": {
+                "cluster": [],
+                "indices": [
+                  {
+                    "names": [
+                      "*"
+                    ],
+                    "privileges": [
+                      "all"
+                    ]
+                  }
+                ]
+              },
+              "kibana": [
+                {
+                  "base": [],
+                  "feature": {
+                    "visualize": [
+                      "all"
+                    ],
+                    "dashboard": [
+                      "all"
+                    ],
+                    "discover": [
+                      "all"
+                    ]
+                  },
+                  "spaces": [
+                    "*"
+                  ]
+                }
+              ]
             }
         ))
       }
 
       let(:valid_rendered_request) {
-        "curl -s -k -X  PUT -H 'kbn-xsrf: true' -H 'Content-Type: application/json'  http://10.0.8.2:5601/api/security/role/monitoring-role"
+        "curl -s -k -X  PUT -H 'Content-Type: application/json' -H 'kbn-xsrf: true'  https://admin:password@10.0.8.2:5601/api/security/role/monitoring-role"
       }
 
       it 'renders properly' do
