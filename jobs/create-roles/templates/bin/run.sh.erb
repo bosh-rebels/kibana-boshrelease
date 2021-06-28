@@ -4,7 +4,7 @@ set -euf -o pipefail
 
 <%
 kibana_link = link('kibana')
-protocol = kibana_link.p('kibana.elasticsearch.protocol', 'http')
+protocol = kibana_link.p('kibana.elasticsearch.client.protocol', 'http')
 url="#{protocol}://"
 username = kibana_link.p('kibana.elasticsearch.client.username', nil)
 password = kibana_link.p('kibana.elasticsearch.client.password', nil)

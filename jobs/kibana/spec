@@ -16,7 +16,7 @@ provides:
 - name: kibana
   type: kibana
   properties:
-  - kibana.elasticsearch.protocol
+  - kibana.elasticsearch.client.protocol
   - kibana.elasticsearch.client.username
   - kibana.elasticsearch.client.password
   - kibana.port
@@ -83,6 +83,9 @@ properties:
     description: key
   kibana.xpack.encryptedSavedObjects.encryptionKey:
     description: "A string of 32 or more characters used to encrypt sensitive properties on alerts and actions before they’re stored in Elasticsearch"
+  kibana.elasticsearch.client.protocol:
+    description: "The protocol to connect to kibana vms"
+    default: http
   kibana.elasticsearch.client.username:
     description: "The elastic username required to connect to a secure Kibana cluster"
     default: elastic

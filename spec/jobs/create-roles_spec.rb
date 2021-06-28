@@ -17,10 +17,10 @@ describe 'create-roles job' do
             'kibana'=> {
               'port' => '5601',
               'elasticsearch' => {
-                'protocol' => 'https',
                 'client' => {
                   'username' => 'admin',
-                  'password' => 'password'
+                  'password' => 'password',
+                  'protocol' => 'http'
               }
             }
           }
@@ -63,7 +63,7 @@ describe 'create-roles job' do
       }
 
       let(:valid_rendered_request) {
-        "curl -s -k -X  PUT -H 'Content-Type: application/json' -H 'kbn-xsrf: true'  https://admin:password@10.0.8.2:5601/api/security/role/monitoring-role"
+        "curl -s -k -X  PUT -H 'Content-Type: application/json' -H 'kbn-xsrf: true'  http://admin:password@10.0.8.2:5601/api/security/role/monitoring-role"
       }
 
       it 'renders properly' do
